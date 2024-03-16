@@ -15,7 +15,6 @@
     New User Registration !!<br/>
     <input name="username" type="text" placeholder="Username" size="30" required/><br/>
     <input name="userpsd" type="password" placeholder="Password" size="30" minlength="8" required/><br/>
-
     <input name="useremail" type="text" placeholder="Email" size="30" required/><br/>
     Gender:
     <input name="Gender" type="radio" value="Male"/>Male
