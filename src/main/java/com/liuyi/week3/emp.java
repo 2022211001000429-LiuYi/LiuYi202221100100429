@@ -3,12 +3,12 @@ package com.liuyi.week3;
 import java.util.Date;
 
 public class emp{
-    private int id;
-    private String username;
-    private String password;
-    private String email;
-    private String gender;
-    private Date userbirth;
+    public int id;
+    public String username;
+    public String password;
+    public String email;
+    public String gender;
+    public Date userbirth;
 
     public int getId(){
         return id;
@@ -31,5 +31,6 @@ public class emp{
 
     public Date getUserbirth(){return  userbirth;}
     public void setUserbirth(Date userbirth){this.userbirth=userbirth;}
+
 }
 
