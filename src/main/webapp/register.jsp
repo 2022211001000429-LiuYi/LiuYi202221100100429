@@ -15,7 +15,7 @@ This is my JSP page.<br>
     <input name="password" type="password" placeholder="Password" size="30" minlength="8" required/><br/>
     <input name="email" type="text" placeholder="Email" size="30" required/><br/>
     Gender:
-    <input name="gender" type="radio" value="Male"/>Male
+    <input name="gender" type="radio" value="Male">Male
     <input name="gender" type="radio" value="Female"/>Female<br/>
     Date of Birth: <input name="userbirth" type="date" required/><br/>
     <input type="submit" value="Register"/>

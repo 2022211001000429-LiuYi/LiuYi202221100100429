@@ -9,14 +9,15 @@ import java.io.PrintWriter;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-@WebServlet(
-        urlPatterns = {"/config"},
-        initParams = {
-                @WebInitParam(name="name1",value="LiuYi"),
-                @WebInitParam(name="studentID1",value="2022211001000429"),
-        }, loadOnStartup = 1
+//@WebServlet(
+        //urlPatterns = {"/config"},
+        //initParams = {
+        //        @WebInitParam(name="name1",value="LiuYi"),
+        //        @WebInitParam(name="studentID1",value="2022211001000429"),
+        //},
+        //loadOnStartup = 1
 
-)
+//)
 
 public class ConfigDemoServlet extends HttpServlet {
     @Override

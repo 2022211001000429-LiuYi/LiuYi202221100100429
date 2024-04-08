@@ -10,21 +10,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@WebServlet(
-        urlPatterns = {"/login"},
-        initParams = {
-                @WebInitParam(name="driver",value="com.microsoft.sqlserver.jdbc.SQLServerDriver"),
-                @WebInitParam(name="url",value="jdbc:sqlserver://localhost:1433;databaseName=userdb;integratedSecurity=false;encrypt=true;trustServerCertificate=true;"),
-                @WebInitParam(name="username",value="sa"),
-                @WebInitParam(name="password",value="123456789"),
-
-        }
-)
+//@WebServlet(
+        //urlPatterns = {"/login"},loadOnStartup = 1
+        //initParams = {
+       //         @WebInitParam(name="driver",value="com.microsoft.sqlserver.jdbc.SQLServerDriver"),
+         //       @WebInitParam(name="url",value="jdbc:sqlserver://localhost:1433;databaseName=userdb;integratedSecurity=false;encrypt=true;trustServerCertificate=true;"),
+         //       @WebInitParam(name="username",value="sa"),
+         //       @WebInitParam(name="password",value="123456789"),
+        //}
+//)
 public class LoginServlet extends HttpServlet {
     Connection con = null;
 
     @Override
     public void init() throws ServletException {
+        /*
         ServletConfig config = getServletConfig();
         String driver = config.getInitParameter("driver");//<param-name>driver</param-name>
         String url = config.getInitParameter("url");//<param-name>url</param-name>
@@ -39,11 +39,15 @@ public class LoginServlet extends HttpServlet {
             e.printStackTrace();
         }
         System.out.println("i am in init()");
+         */
+
+        con=(Connection) getServletContext().getAttribute("con");
+
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doPost(request,response);
     }
 
     @Override
@@ -62,15 +66,24 @@ public class LoginServlet extends HttpServlet {
            // ps.close();
 
         if(rs.next()){//true
-                response.getWriter().println("Login Success!!!");
-                response.getWriter().println("Welcome:  "+username1);
-            }else {//false
-                response.getWriter().println("Username or Password Error!!!");
+                //response.getWriter().println("Login Success!!!");
+                //response.getWriter().println("Welcome:  "+username1);
+            request.setAttribute("id",rs.getInt("id"));
+            request.setAttribute("username",rs.getString("username"));
+            request.setAttribute("password",rs.getString("password"));
+            request.setAttribute("email",rs.getString("email"));
+            request.setAttribute("gender",rs.getString("gender"));
+            request.setAttribute("userbirth",rs.getString("userbirth"));
+            request.getRequestDispatcher("userInfo.jsp").forward(request,response);
+
+        }else {//false
+                //response.getWriter().println("Username or Password Error!!!");
+            request.setAttribute("message","Username or Password Error!!!");
+            request.getRequestDispatcher("login.jsp").forward(request,response);
             }
     } catch(SQLException throwables) {
         throwables.printStackTrace();
     }
-        //request.getRequestDispatcher("loginlist.jsp").forward(request,response);
     }
     }
 

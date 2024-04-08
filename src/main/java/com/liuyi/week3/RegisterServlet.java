@@ -11,27 +11,28 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@WebServlet(
-        urlPatterns = {"/register"},
-        initParams = {
-        @WebInitParam(name="driver",value="com.microsoft.sqlserver.jdbc.SQLServerDriver"),
-        @WebInitParam(name="url",value="jdbc:sqlserver://localhost:1433;databaseName=userdb;integratedSecurity=false;encrypt=true;trustServerCertificate=true;"),
-        @WebInitParam(name="username",value="sa"),
-        @WebInitParam(name="password",value="123456789"),
-
-}
-)
+//@WebServlet(
+        //urlPatterns = {"/register"},loadOnStartup = 1
+        //initParams = {
+        //@WebInitParam(name="driver",value="com.microsoft.sqlserver.jdbc.SQLServerDriver"),
+        //@WebInitParam(name="url",value="jdbc:sqlserver://localhost:1433;databaseName=userdb;integratedSecurity=false;encrypt=true;trustServerCertificate=true;"),
+        //@WebInitParam(name="username",value="sa"),
+        //@WebInitParam(name="password",value="123456789"),}
+//)
 
 public class RegisterServlet extends HttpServlet {
     Connection con=null;
 
     @Override
     public void init() throws ServletException {
-        ServletConfig config=getServletConfig();
-        String driver=config.getInitParameter("driver");//<param-name>driver</param-name>
-        String url=config.getInitParameter("url");//<param-name>url</param-name>
-        String username=config.getInitParameter("username");//<param-name>username</param-name>
-        String password=config.getInitParameter("password");//<param-name>password</param-name>
+        System.out.println("i am in init()");
+
+        /*
+        ServletContext context=getServletContext();
+        String driver=context.getInitParameter("driver");//<param-name>driver</param-name>
+        String url=context.getInitParameter("url");//<param-name>url</param-name>
+        String username=context.getInitParameter("username");//<param-name>username</param-name>
+        String password=context.getInitParameter("password");//<param-name>password</param-name>
 
         try {
             Class.forName(driver);
@@ -40,7 +41,10 @@ public class RegisterServlet extends HttpServlet {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("i am in init()");
+
+         */
+
+        con=(Connection) getServletContext().getAttribute("con");
     }
     
     @Override
@@ -77,13 +81,14 @@ public class RegisterServlet extends HttpServlet {
                 System.out.print("成功添加了"+row+"条数据！");
             }
             ps.close();
+            response.sendRedirect("login.jsp");
 
         }catch (Exception e){
             System.out.print("添加信息失败");
             e.printStackTrace();
         }
 
-
+/*
         String sql="select * from usertable";
 
         try {
@@ -110,5 +115,7 @@ public class RegisterServlet extends HttpServlet {
         }
         //we will add THIS IN WEEK 6
         request.getRequestDispatcher("userlist.jsp").forward(request,response);
+       */
     }
+
 }

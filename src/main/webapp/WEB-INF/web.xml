@@ -3,40 +3,34 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-
     <servlet>
         <servlet-name>anyName</servlet-name>
         <servlet-class>com.liuyi.week2.HelloWorldServlet</servlet-class>
-</servlet>
+    </servlet>
+
 <servlet>
 <servlet-name>LifeCycleServlet</servlet-name>
 <servlet-class>com.liuyi.week3.LifeCycleServlet</servlet-class>
 </servlet>
+    <servlet-mapping>
+        <servlet-name>LifeCycleServlet</servlet-name>
+        <url-pattern>/life</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>com.liuyi.week5.LoginServlet</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
 
-    <!--
+
     <servlet>
     <servlet-name>RegisterServlet</servlet-name>
     <servlet-class>com.liuyi.week3.RegisterServlet</servlet-class>
     </servlet>
-    <servlet>
-    <servlet-name>JDBCDemoServlet</servlet-name>
-    <servlet-class>com.liuyi.week4.JDBCDemoServlet</servlet-class>
-    </servlet>
-    -->
-<servlet-mapping>
-<servlet-name>anyName</servlet-name>
-<url-pattern>/hello</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
-<servlet-name>LifeCycleServlet</servlet-name>
-<url-pattern>/life</url-pattern>
-</servlet-mapping>
-    <!--
 <servlet-mapping>
 <servlet-name>RegisterServlet</servlet-name>
 <url-pattern>/register</url-pattern>
@@ -44,8 +38,8 @@
 
     <servlet>
     <servlet-name>JDBCDemoServlet</servlet-name>
-    <servlet-class>com.liuyi.week4.JDBCDemoServlet</ser-class>
-
+    <servlet-class>com.liuyi.week4.JDBCDemoServlet</servlet-class>
+<!--
     String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String url="jdbc:sqlserver://localhost:1433;databaseName=userdb;integratedSecurity=false;encrypt=true;trustServerCertificate=true;";//a path
     String username="sa";
@@ -68,18 +62,18 @@
            <param-value>123456789</param-value>
        </init-param>
        <load-on-startup>1</load-on-startup>
-
+-->
        </servlet>
-
        <servlet-mapping>
        <servlet-name>JDBCDemoServlet</servlet-name>
        <url-pattern>/jdbc</url-pattern>
        </servlet-mapping>
-       -->
-<!--
+
+
     <servlet>
         <servlet-name>ConfigDemoServlet</servlet-name>
         <servlet-class>com.liuyi.week4.ConfigDemoServlet</servlet-class>
+<!--
         <init-param>
             <param-name>name</param-name>
             <param-value>LiuYi</param-value>
@@ -89,14 +83,14 @@
             <param-value>2022211001000429</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
-
+-->
     </servlet>
     <servlet-mapping>
         <servlet-name>ConfigDemoServlet</servlet-name>
         <url-pattern>/config</url-pattern>
     </servlet-mapping>
 -->
-    <!--
+
     <context-param>
         <param-name>driver</param-name>
         <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
@@ -113,6 +107,14 @@
         <param-name>password</param-name>
         <param-value>123456789</param-value>
     </context-param>
-    -->
-
+<!--
+    <servlet>
+        <servlet-name>JDBCServletContextListener</servlet-name>
+        <servlet-class>com.liuyi.week6.JDBCServletContextListener</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JDBCServletContextListener</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+-->
 </web-app>

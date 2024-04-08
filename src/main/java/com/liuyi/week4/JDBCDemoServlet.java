@@ -11,17 +11,17 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@WebServlet(
-        urlPatterns = {"/jdbc"},
-        initParams = {
-                @WebInitParam(name="driver",value="com.microsoft.sqlserver.jdbc.SQLServerDriver"),
-                @WebInitParam(name="url",value="jdbc:sqlserver://localhost:1433;databaseName=userdb;integratedSecurity=false;encrypt=true;trustServerCertificate=true;"),
-                @WebInitParam(name="username",value="sa"),
-                @WebInitParam(name="password",value="123456789"),
+//@WebServlet(
+        //urlPatterns = {"/jdbc"},
+        //initParams = {
+        //        @WebInitParam(name="driver",value="com.microsoft.sqlserver.jdbc.SQLServerDriver"),
+        //        @WebInitParam(name="url",value="jdbc:sqlserver://localhost:1433;databaseName=userdb;integratedSecurity=false;encrypt=true;trustServerCertificate=true;"),
+        //        @WebInitParam(name="username",value="sa"),
+        //        @WebInitParam(name="password",value="123456789"),
+        //},
+        //loadOnStartup = 1
 
-        }, loadOnStartup = 1
-
-)
+//)
 
 public class JDBCDemoServlet extends HttpServlet {
     Connection con=null;
