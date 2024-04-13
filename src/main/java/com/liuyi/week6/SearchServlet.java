@@ -17,11 +17,11 @@ public class SearchServlet extends HttpServlet {
             response.sendRedirect("index.jsp");
         }else {
             if(search1.equals("baidu")){
-                response.sendRedirect("https://www.baidu.com/?/"+text1);
+                response.sendRedirect("https://www.baidu.com/s?wd="+text1);
             }else if(search1.equals("bing")){
-                response.sendRedirect("https://cn.bing.com/?FORM=Z9FD1"+text1);
+                response.sendRedirect("https://cn.bing.com/search?q="+text1);
             }else if(search1.equals("google")){
-                response.sendRedirect("https://www.google.com.hk/index.html"+text1);
+                response.sendRedirect("https://www.google.com/search?q="+text1);
             }
         }
     }

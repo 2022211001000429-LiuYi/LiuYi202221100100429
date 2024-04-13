@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@page import="com.liuyi.week3.emp" %>
+<%@ page import="java.sql.ResultSet" %>
 <!-- WEEK 5 -->
 <%--
   Created by IntelliJ IDEA.
@@ -14,6 +15,7 @@
     <title>所有用户信息</title>
 </head>
 <body>
+<h1>User List</h1>
 <table border="1" bordercolor="#000000">
     <caption>users information</caption>
     <tr>
@@ -27,6 +29,7 @@
     <!-- week 5--->
 
     <%
+        //ResultSet rs=(ResultSet)request.getAttribute("rsname");
         List<emp> list=(List<emp>) request.getAttribute("list");// WEEK 6
         if(list==null||list.size()<1){
             System.out.print("没有信息！");

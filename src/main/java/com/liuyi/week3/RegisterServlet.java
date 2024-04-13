@@ -66,6 +66,7 @@ public class RegisterServlet extends HttpServlet {
         String gender=request.getParameter("gender");
         String birthdate=request.getParameter("userbirth");
 //WEEK 4 - HOMEWORK
+
         try{
 
             String sql="insert into usertable(username,password,email,gender,userbirth) values(?,?,?,?,?)" ;
@@ -87,6 +88,8 @@ public class RegisterServlet extends HttpServlet {
             System.out.print("添加信息失败");
             e.printStackTrace();
         }
+
+
 
 /*
         String sql="select * from usertable";
